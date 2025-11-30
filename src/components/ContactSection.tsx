@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+
+// Initialize EmailJS - Replace with your actual Public Key
+emailjs.init("g3q5-OH8WlCHdujsb");
 
 const contactInfo = [
   {
@@ -48,13 +52,44 @@ export const ContactSection = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const SERVICE_ID = "service_bjkpfpi";
+      const TEMPLATE_ID = "template_naw895b";
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        to_email: "kavirajanekadesi@gmail.com",
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      });
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact directly.",
+        variant: "destructive",
+      });
+      console.error("EmailJS error:", error);
+    }
   };
 
   const handleChange = (

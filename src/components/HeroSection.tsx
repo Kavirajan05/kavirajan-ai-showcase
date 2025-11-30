@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone, Download, User } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
@@ -115,10 +115,11 @@ export const HeroSection = () => {
                 <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
                   <div className="absolute inset-0 rounded-full bg-gradient-primary p-1">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      {/* Replace this div with an img tag when you have your photo */}
-                      <div className="w-full h-full bg-secondary/50 flex items-center justify-center">
-                        <User className="w-24 h-24 sm:w-32 sm:h-32 text-muted-foreground/50" />
-                      </div>
+                      <img 
+                        src="/profile.jpg" 
+                        alt="Kavirajan E - AI Engineer" 
+                        className="w-full h-full object-cover rounded-full"
+                      />
                     </div>
                   </div>
                   
