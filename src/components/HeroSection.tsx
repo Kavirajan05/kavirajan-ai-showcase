@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone, Download } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, Download, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
@@ -16,7 +16,20 @@ export const HeroSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-slide-up opacity-0">
+          {/* Profile Image Placeholder */}
+          <div className="animate-slide-up opacity-0 mb-6">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto">
+              <div className="absolute inset-0 rounded-full bg-gradient-primary animate-pulse-glow" />
+              <div className="absolute inset-1 rounded-full bg-background flex items-center justify-center overflow-hidden">
+                {/* Replace this div with an img tag when you have your photo */}
+                <div className="w-full h-full bg-secondary flex items-center justify-center">
+                  <User className="w-16 h-16 sm:w-20 sm:h-20 text-muted-foreground" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="animate-slide-up opacity-0 delay-100">
             <p className="text-primary font-mono text-sm sm:text-base mb-4">
               Hello, I'm
             </p>
