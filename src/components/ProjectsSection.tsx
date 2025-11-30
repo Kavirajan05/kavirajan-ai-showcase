@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Bot, Vote, Shield, Factory, Brain } from "lucide-react";
+import { ExternalLink, Github, Bot, Vote, Shield, Factory, Brain, BarChart3, Mic, Wheat } from "lucide-react";
 
 const projects = [
   {
@@ -26,6 +26,14 @@ const projects = [
     featured: true,
   },
   {
+    title: "SoundVerse – AI Voice Assistant",
+    description:
+      "An AI-powered voice assistant using speech recognition & NLP. Features wake-word detection, command processing, and TTS responses for hands-free interaction.",
+    techStack: ["Python", "Vosk", "Whisper", "NLP", "TTS"],
+    icon: Mic,
+    featured: true,
+  },
+  {
     title: "YOLOv8 Workplace Safety Monitor",
     description:
       "Real-time PPE detection system using YOLOv8 for workplace safety compliance. Monitors employees for proper safety equipment and generates alerts.",
@@ -39,6 +47,22 @@ const projects = [
       "Machine learning model for predicting semiconductor manufacturing yield. Processed 591 features to optimize production efficiency and reduce defects.",
     techStack: ["Python", "Scikit-learn", "Pandas", "Feature Engineering", "XGBoost"],
     icon: Factory,
+    featured: false,
+  },
+  {
+    title: "Retail Analysis Dashboard",
+    description:
+      "End-to-end retail analytics dashboard analyzing sales KPIs. Identifies trends, demand patterns, and customer insights for data-driven business decisions.",
+    techStack: ["Python", "Pandas", "Power BI", "Tableau", "SQL"],
+    icon: BarChart3,
+    featured: false,
+  },
+  {
+    title: "Agri Yield Predictor",
+    description:
+      "ML model predicting crop yield based on soil, climate, and nutrient factors. Helps farmers make data-driven decisions for agriculture planning.",
+    techStack: ["Python", "Scikit-learn", "Regression", "Feature Engineering"],
+    icon: Wheat,
     featured: false,
   },
 ];
